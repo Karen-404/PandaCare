@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis Tareas del Día</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="aplicacion">
+      <section class="barra-lateral" id="barraLateral">
+        <div class="caja-logo">
+          <div class="logo"><img src="imagen/panda.png" alt="" /></div>
+          <label class="logo-titulo">Mis Tareas</label>
+          <label class="logo-texto">Organiza tu día</label>
+        </div>
+
+        <fieldset class="grupo-menu">
+          <div class="menu" id="menu">
+            <button class="boton-menu activo" data-vista="todas" type="button">
+              Todas las tareas
+            </button>
+            <button class="boton-menu" data-vista="pendientes" type="button">
+              Pendientes
+            </button>
+            <button class="boton-menu" data-vista="completadas" type="button">
+              Completadas
+            </button>
+            <button class="boton-menu" data-vista="calendario" type="button">
+              Calendario
+            </button>
+            <button class="boton-menu" data-vista="estadisticas" type="button">
+              Estadísticas
+            </button>
+            <button class="boton-menu" data-vista="ajustes" type="button">
+              Ajustes
+            </button>
+          </div>
+        </fieldset>
+
+        <div class="caja-frase">
+          <label class="frase-texto"
+            >La disciplina es el puente entre las metas y los logros.</label
+          >
+        </div>
+      </section>
+
+      <section class="contenido">
+        <section class="barra-superior">
+          <div class="barra-superior-izquierda">
+            <button class="boton-icono solo-movil" id="botonMenu" type="button">
+              ☰
+            </button>
+
+            <div class="caja-titulo">
+              <label class="titulo-principal">Tareas del Día</label>
+              <label class="texto-principal"
+                >Agrega, organiza y completa tus tareas diarias</label
+              >
+            </div>
+          </div>
+        </section>
+
+        <section class="tarjeta">
+          <label class="titulo-tarjeta">Agregar nueva tarea</label>
+
+          <form id="formularioTarea">
+            <fieldset class="grupo-formulario">
+              <div class="cuadricula-formulario">
+                <div class="campo campo-amplio">
+                  <label for="entradaTarea">Tarea</label>
+                  <input
+                    type="text"
+                    id="entradaTarea"
+                    placeholder="¿Qué necesitas hacer?"
+                    maxlength="120"
+                    required
+                  />
+                </div>
+
+                <div class="campo">
+                  <label for="entradaPrioridad">Prioridad</label>
+                  <select id="entradaPrioridad">
+                    <option value="Alta">Alta</option>
+                    <option value="Media" selected>Media</option>
+                    <option value="Baja">Baja</option>
+                  </select>
+                </div>
+
+                <div class="campo">
+                  <label for="entradaFecha">Fecha</label>
+                  <input type="date" id="entradaFecha" required />
+                </div>
+
+                <div class="campo">
+                  <label for="botonAgregar">Acción</label>
+                  <button id="botonAgregar" class="boton" type="submit">
+                    Agregar Tarea
+                  </button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </section>
+
+        <section class="tarjeta">
+          <div class="encabezado-seccion">
+            <label class="titulo-tarjeta">Filtrar tareas</label>
+
+            <div class="estadisticas">
+              <fieldset class="caja-estadistica">
+                <label>Total</label>
+                <label id="contadorTotal">0</label>
+              </fieldset>
+
+              <fieldset class="caja-estadistica">
+                <label>Pendientes</label>
+                <label id="contadorPendientes">0</label>
+              </fieldset>
+
+              <fieldset class="caja-estadistica">
+                <label>Completadas</label>
+                <label id="contadorCompletadas">0</label>
+              </fieldset>
+            </div>
+          </div>
+
+          <fieldset class="grupo-filtros">
+            <div class="filtros">
+              <button
+                class="boton-filtro activo"
+                data-filtro="todas"
+                type="button"
+              >
+                Todas
+              </button>
+              <button
+                class="boton-filtro"
+                data-filtro="pendientes"
+                type="button"
+              >
+                Pendientes
+              </button>
+              <button
+                class="boton-filtro"
+                data-filtro="completadas"
+                type="button"
+              >
+                Completadas
+              </button>
+            </div>
+          </fieldset>
+        </section>
+
+        <section class="tarjeta">
+          <div class="encabezado-seccion">
+            <label class="titulo-tarjeta">Lista de tareas</label>
+            <button
+              id="botonLimpiarCompletadas"
+              class="boton boton-claro"
+              type="button"
+            >
+              Limpiar completadas
+            </button>
+          </div>
+
+          <div id="listaTareas" class="lista-tareas"></div>
+          <label id="estadoVacio" class="texto-vacio"
+            >No hay tareas para mostrar.</label
+          >
+        </section>
+
+        <section class="pie-pagina">
+          <label> Mis Tareas del Día</label>
+          <label>Hecho por Dilan, Karen, Sahid</label>
+        </section>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
